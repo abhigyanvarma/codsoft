@@ -1,0 +1,35 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Number_game {
+    public static void main(String[] args) {
+       
+        Random random = new Random();
+        int targetNumber = random.nextInt(10) + 1;
+        
+       int numberOfTries = 0;
+        boolean hasGuessedCorrectly = false;
+         Scanner scanner = new Scanner(System.in);
+         System.out.println("Welcome to the Guess the Number game!");
+        System.out.println("Try to guess the number between 1 and 10.");
+
+         while (!hasGuessedCorrectly) {
+            System.out.print("Enter your guess: ");
+            int userGuess = scanner.nextInt();
+            numberOfTries++;
+            
+            if (userGuess == targetNumber) {
+                hasGuessedCorrectly = true;
+            } else {
+                
+                if (userGuess < targetNumber) {
+                    System.out.println("Too low! Try again.");
+                } else {
+                    System.out.println("Too high! Try again.");
+                }
+            }
+        }
+        System.out.println("Congratulations! You guessed the number in " + numberOfTries + " tries.");
+        scanner.close();
+    }
+}
